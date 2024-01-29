@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { db } from "../firebase.jsx";
 import { doc, getDoc, onSnapshot, collection, query, where, getDocs, updateDoc, arrayUnion, arrayRemove } from "firebase/firestore";
+import PropTypes from 'prop-types';
 
 /**
  * Renders a component that displays the friend list, friend requests, and search functionality to add friends.
@@ -13,7 +14,6 @@ import { doc, getDoc, onSnapshot, collection, query, where, getDocs, updateDoc, 
  */
 function FriendBox({ userId, onFriendClick }) {
     const [friendNames, setFriendNames] = useState([]);
-    const [selectedFriend, setSelectedFriend] = useState(null);
     const [friendRequests, setFriendRequests] = useState([]);
     const [sentRequests, setSentRequests] = useState([]);
     const [searchFriends, setSearchFriends] = useState("");
@@ -92,7 +92,6 @@ function FriendBox({ userId, onFriendClick }) {
     }, []);
 
     const handleNameClick = (friend) => {
-        setSelectedFriend(friend.id);
         onFriendClick(friend);
     };
 
@@ -149,5 +148,10 @@ function FriendBox({ userId, onFriendClick }) {
         </div>
     );
 }
+
+FriendBox.propTypes = {
+    userId: PropTypes.string.isRequired,
+    onFriendClick: PropTypes.func.isRequired,
+};
 
 export default FriendBox;

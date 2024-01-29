@@ -1,7 +1,8 @@
 import { auth } from "../firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
+import PropTypes from 'prop-types';
 
-function MessageComponent({ message, activeChat }) {
+function MessageComponent({ message }) {
     const [user] = useAuthState(auth);
 
     const date = new Date(message.createdAt*26);
@@ -20,5 +21,13 @@ function MessageComponent({ message, activeChat }) {
         </div>
     );
 }
+
+MessageComponent.propTypes = {
+    message: PropTypes.shape({
+      uid: PropTypes.string,
+      text: PropTypes.string,
+      createdAt: PropTypes.number,
+    }).isRequired,
+  };
 
 export default MessageComponent;

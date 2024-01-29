@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { auth, db } from "../firebase.jsx";
 import { addDoc, collection, serverTimestamp, doc } from "firebase/firestore";
+import PropTypes from 'prop-types';
 
 function InputBox({ activeChat }) {
     const [input, setInput] = useState("")
@@ -10,7 +11,7 @@ function InputBox({ activeChat }) {
             alert("Please enter a message");
             return;
         }
-        const { uid, displayName, photoURL } = auth.currentUser;
+        const { uid } = auth.currentUser;
         const chatId = generateChatId(uid, activeChat.id);
         const chatRef = doc(db, "chats", chatId);
         const messagesCollectionRef = collection(chatRef, "messages");
@@ -33,6 +34,12 @@ function InputBox({ activeChat }) {
         </form>
     )
 }
+
+InputBox.propTypes = {
+    activeChat: PropTypes.shape({
+      id: PropTypes.string,
+    }).isRequired,
+  };
 
 export function generateChatId(userId1, userId2) {
     return [userId1, userId2].sort().join("_");

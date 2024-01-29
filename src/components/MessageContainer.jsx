@@ -4,8 +4,9 @@ import { db, auth } from "../firebase.jsx";
 import MessageComponent from './MessageComponent.jsx';
 import { generateChatId } from "./InputBox.jsx"
 import { useAuthState } from 'react-firebase-hooks/auth';
+import PropTypes from 'prop-types';
 
-function MessageContainer({ activeChat, uid }) {
+function MessageContainer({ activeChat }) {
   const [user] = useAuthState(auth);
     const messagesEndRef = useRef(null); 
     const [messages, setMessages] = useState([]);
@@ -54,5 +55,10 @@ function MessageContainer({ activeChat, uid }) {
     )
 }
 
+MessageContainer.propTypes = {
+  activeChat: PropTypes.shape({
+    id: PropTypes.string,
+  }).isRequired,
+};
 
 export default MessageContainer;

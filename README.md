@@ -1,6 +1,6 @@
 # ChatVite
 
-ChatVite is a real-time chat application built with React and Vite.
+ChatVite is a real-time chat application built with React and Vite. Uses firebase for authentication and database. 
 
 ## Features
 
@@ -31,9 +31,9 @@ ChatVite is a real-time chat application built with React and Vite.
     npm run dev
     ```
 
-4. Open your browser and navigate to `http://localhost:3000`.
+4. Open your browser and navigate to `http://localhost:5173/`.
 
-5. Use a firebase account to make an firebase.jsx file with api.
+5. Use a firebase account to make an firebase.jsx file with api. Place the file in "./src".
 
 ## Usage
 

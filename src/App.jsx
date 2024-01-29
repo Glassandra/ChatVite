@@ -8,6 +8,11 @@ import InputBox from './components/InputBox.jsx';
 import MessageContainer from './components/MessageContainer.jsx';
 import FriendBox from './components/FriendBox.jsx';
 
+/**
+ * Renders the main application component.
+ *
+ * @returns {JSX.Element} The rendered App component.
+ */
 function App() {
   const [user] = useAuthState(auth);
   const [activeChat, setActiveChat] = useState(null);
