@@ -33,6 +33,8 @@ ChatVite is a real-time chat application built with React and Vite.
 
 4. Open your browser and navigate to `http://localhost:3000`.
 
+5. Use a firebase account to make an firebase.jsx file with api.
+
 ## Usage
 
 - Sign up or log in to access the chat application.

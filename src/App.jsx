@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react';
 import StartPage from './components/StartPage.jsx';
 import { auth } from './firebase.jsx';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import LogIn from './components/LogIn.jsx';
 import { signOut } from "firebase/auth";
 import InputBox from './components/InputBox.jsx';
 import MessageContainer from './components/MessageContainer.jsx';
